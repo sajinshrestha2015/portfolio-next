@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Sajin&aposs Portfolio',
+  title: "Sajin's Portfolio",
   description: "Sajin's Portfolio"
 }
 
