@@ -1,0 +1,111 @@
+---
+title: 'Learning Redux and Redux-Thunk'
+summary:
+  "Learn how to manage your application's state with Redux and handle
+  asynchronous actions with Redux-Thunk."
+image: /images/posts/introduction-to-react-redux.png
+author: 'Sajin Shrestha'
+publishedAt: '2019-11-24'
+---
+
+# Introduction to Redux and Redux-Thunk
+
+Redux is a state management tool for JavaScript applications. It provides a
+centralized store for all your app's state and ensures consistent behavior
+across different components. Redux-Thunk is middleware that allows you to handle
+asynchronous actions in Redux, enabling better management of side effects like
+API calls.
+
+## Why Use Redux?
+
+- **Predictable State**: Redux manages the application state in a single,
+  centralized store.
+- **Debugging**: The immutable state and explicit actions make debugging easier.
+- **Testable**: Redux’s functions are pure, which makes it simple to test.
+
+## How to Install Redux and Redux-Thunk
+
+1. **Install Redux**  
+   To install Redux, run the following command:
+   ```bash
+   npm install redux
+   ```
+2. **Install Redux-thunk**  
+   To install Redux-Thunk, run the following command:
+   ```bash
+   npm install redux-thunk
+   ```
+3. **Install React-Redux**  
+   To install Redux-Redux, run the following command:
+   ```bash
+   npm install react-redux
+   ```
+
+## Getting Started with Redux
+
+1. **Create a Store**  
+   Redux requires a store where the application state will be kept. Here's how
+   you create a basic store:
+
+```
+import { createStore } from 'redux';
+const store = createStore(reducer);
+```
+
+2. **Define Actions and Reducers**  
+   Actions are dispatched to change the state, and reducers specify how the
+   state should change in response.
+
+```
+// Action
+const increment = () => ({ type: 'INCREMENT' });
+
+// Reducer
+const counterReducer = (state = { count: 0 }, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    default:
+      return state;
+  }
+};
+
+```
+
+## Using Redux-Thunk for Asynchronous Actions
+
+Redux-Thunk allows you to return functions from action creators. This is
+particularly useful for handling asynchronous actions like fetching data from an
+API.
+
+1. **Action Creator with Thunk**  
+   Here’s an example of how to use Redux-Thunk:
+
+```
+const fetchData = () => {
+  return (dispatch) => {
+    fetch('https://api.example.com/data')
+      .then(response => response.json())
+      .then(data => dispatch({ type: 'FETCH_DATA_SUCCESS', payload: data }));
+  };
+};
+
+```
+
+1. **Add Thunk Middleware**  
+   When creating the Redux store, you need to apply the thunk middleware:
+
+```
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+const store = createStore(reducer, applyMiddleware(thunk));
+
+
+```
+
+## Conclusion
+
+Redux and Redux-Thunk provide powerful tools for managing application state and
+handling asynchronous actions. Redux helps you maintain predictable state, while
+Redux-Thunk gives you the ability to deal with side effects such as API calls.
+Together, they make building scalable applications more manageable.

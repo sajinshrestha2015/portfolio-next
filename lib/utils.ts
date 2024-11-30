@@ -15,7 +15,6 @@ export function formatDate(date: string) {
 
 export const formattedDate = (date = new Date()) => {
   const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
-  console.log("User's Time Zone:", userTimeZone)
 
   // Display time in the user's time zone
 
@@ -27,6 +26,5 @@ export const formattedDate = (date = new Date()) => {
     hour12: true
   })
 
-  console.log("Time in User's Time Zone:", localizedTime)
   return localizedTime
 }

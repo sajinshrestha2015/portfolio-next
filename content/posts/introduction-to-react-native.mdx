@@ -1,0 +1,70 @@
+---
+title: 'Setting Up React Native with Expo and React Native CLI'
+summary:
+  'Learn how to install and set up both Expo and React Native CLI for building
+  cross-platform mobile apps.'
+image: '/images/posts/introduction-to-react-native.png'
+author: 'Sajin Shrestha'
+publishedAt: '2020-12-25'
+---
+
+# Introduction to Expo and React Native CLI
+
+React Native allows you to build mobile applications using JavaScript and React.
+Both **Expo** and **React Native CLI** offer different workflows for React
+Native development. Expo simplifies the setup and development process, while
+React Native CLI offers more customization and control.
+
+---
+
+## Why Use Expo vs. React Native CLI?
+
+- **Expo**: Great for beginners, faster to set up, and no need for Xcode/Android
+  Studio for basic apps.
+- **React Native CLI**: Offers greater flexibility for custom native code and
+  configurations.
+
+---
+
+## Installation of Expo CLI
+
+1. **Install Expo CLI**  
+   To install the Expo CLI globally:
+   ```bash
+   npm install -g expo-cli
+   ```
+2. **Create a New Expo Project**  
+   After installing Expo CLI, create a new project:
+
+```bash
+expo init my-project
+cd my-project
+npm start
+
+```
+
+## Installation of React Native CLI
+
+1. **Install React Native CLI**  
+   To install React Native CLI globally:
+
+   ```bash
+   npm install -g react-native-cli
+
+   ```
+
+2. **Create a New React Native Project**  
+   Use the following command to initialize a new project:
+
+   ```bash
+   npx react-native init MyApp
+   cd MyApp
+   npx react-native run-android   # or npx react-native run-ios for iOS
+   ```
+
+## Conclusion
+
+Both **Expo CLI** and **React Native CLI** are excellent tools for React Native
+development. **Expo** is great for quick development, while **React Native CLI**
+gives you more control over the native parts of your app. Choose based on your
+project requirements and level of customization needed.

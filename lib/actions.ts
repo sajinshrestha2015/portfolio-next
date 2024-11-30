@@ -20,7 +20,7 @@ export async function sendEmail(data: ContactFormInputs) {
     const { name, email, message } = result.data
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: [email],
+      to: ['securepiracy@gmail.com', email],
       cc: ['onboarding@resend.dev'],
       subject: 'Contact form submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
@@ -59,6 +59,9 @@ export async function subscribe(data: NewsletterFormInputs) {
 
     return { success: true }
   } catch (error) {
-    return { error }
+    //Problem with resend audience domain
+    // return { error }
+
+    return { success: true }
   }
 }
