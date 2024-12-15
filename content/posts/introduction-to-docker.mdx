@@ -1,0 +1,113 @@
+---
+title: Introduction to Docker
+summary: Step-by-step guide to learning Docker for beginners
+image: /images/posts/introduction-to-docker.webp
+author: 'Sajin Shrestha'
+publishedAt: '2023-02-16'
+---
+
+# Learning Docker: A Step-by-Step Guide
+
+Docker is a powerful platform for containerizing applications, making it easier
+to deploy and scale them. Follow these steps to get started with Docker:
+
+## Step 1: Understand the Basics
+
+Learn what Docker is and its core concepts:
+
+- **Containers**: Lightweight, portable application environments.
+- **Images**: The blueprint for containers.
+- **Docker Hub**: The registry for Docker images.
+- **Docker Engine**: The runtime that powers Docker.
+
+---
+
+## Step 2: Install Docker
+
+1. Visit the [Docker website](https://www.docker.com/).
+2. Download Docker Desktop for your operating system:
+   - Windows
+   - macOS
+   - Linux
+3. Follow the installation instructions and verify the installation by running:
+
+```bash
+docker --version
+```
+
+## Step 3: Run Your First Container
+
+Try running a container using a pre-built image:
+
+```bash
+docker run hello-world
+```
+
+This command pulls the hello-world image from Docker Hub and runs it,
+demonstrating that Docker is working on your system.
+
+## Step 4: Learn Docker Commands
+
+- **docker pull image-name**: Download an image.
+- **docker images**: List all downloaded images.
+- **docker ps**: List running containers.
+- **docker stop container-name**: Stop a running container.
+
+## Step 5: Build Your Own Image
+
+1. Create a Dockerfile with the following content:
+
+```dockerfile
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y curl
+CMD ["echo", "Hello, Docker!"]
+```
+
+2. Build the image:
+
+```bash
+docker build -t my-image .
+```
+
+3. Run a container using your image:
+
+```bash
+docker run my-image
+```
+
+## Step 6: Work with Docker Compose
+
+Docker Compose simplifies multi-container setups:
+
+1. Install Docker Compose if it’s not included with Docker Desktop.
+2. Create a docker-compose.yml file:
+
+```yml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - '8080:80'
+```
+
+3. Start the application:
+
+```bash
+docker-compose up
+<CopyButton text="docker-compose up" />
+```
+
+## Step 7: Dive into Advanced Topics
+
+Once comfortable with the basics, explore:
+
+- **Networking**: Connect multiple containers.
+- **Volumes**: Persist data.
+- **Docker Swarm or Kubernetes**: Orchestrate container deployments.
+- **CI/CD with Docker**: Integrate Docker into your development pipeline.
+
+## Resources
+
+- [**Docker Documentation**](https://docs.docker.com/)
+- [**Docker Hub**](https://hub.docker.com/)

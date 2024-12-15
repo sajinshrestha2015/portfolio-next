@@ -1,0 +1,19 @@
+## Creating Image with node
+FROM node:22-alpine AS base
+
+## creating working directory on docker
+WORKDIR /src
+
+## Copying package.json on the working directory
+COPY package.json .
+
+## Running the installation of packages that are needed from copied package.json
+RUN npm install
+
+## Copying all other files of the current directory to the working directory
+COPY . .
+
+## Running the application
+CMD npm run dev
+
+
