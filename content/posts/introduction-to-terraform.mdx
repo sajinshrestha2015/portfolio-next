@@ -1,0 +1,196 @@
+---
+title: Introduction to Terraform
+summary:
+  Azure Pipelines is a powerful tool for automating build, test, and deployment
+  processes. This guide provides a structured approach to learning Azure
+  Pipelines effectively.
+image: /images/posts/introduction-to-terraform.webp
+author: 'Sajin Shrestha'
+publishedAt: '2024-04-03'
+---
+
+# Learning Terraform as a Beginner
+
+Terraform is a powerful tool for managing infrastructure as code (IaC). If
+you're just starting, follow these steps to learn the basics and build your
+skills step by step.
+
+## What is Terraform?
+
+Terraform is an **open-source tool** developed by HashiCorp that lets you:
+
+- Define your infrastructure (servers, databases, networks) as **code**.
+- Automatically create, update, or delete resources across cloud providers like
+  AWS, Azure, or Google Cloud.
+- Track changes to your infrastructure for better collaboration and management.
+
+---
+
+## Understanding Infrastructure as Code (IaC) in Terraform
+
+**Infrastructure as Code (IaC) in Terraform** is like writing a recipe for
+building and managing your digital infrastructure (like servers, databases, or
+networks). Instead of manually setting things up in a cloud provider’s
+dashboard, you write everything down in code. Terraform then reads this "recipe"
+and builds exactly what you described.
+
+---
+
+## Imagine This:
+
+You're building a house:
+
+- **Manual Way**: You go to the store, buy bricks, and lay them one by one. This
+  is like manually clicking buttons in a cloud provider's interface.
+- **IaC with Terraform**: You write down instructions for the builder (e.g.,
+  "Build a two-story house with 3 bedrooms and a garage"), and the builder
+  follows them exactly.
+
+Terraform is your **builder**, and your **instructions are written in Terraform
+code**.
+
+---
+
+## Why is this useful?
+
+- **Repeatable**: If you need 10 houses, you just reuse the same instructions.
+  Similarly, Terraform lets you create identical environments (e.g., testing,
+  staging, production) with the same code.
+- **Fast Changes**: Want to add a swimming pool? You just update the
+  instructions, and the builder (Terraform) makes it happen without tearing down
+  the whole house.
+- **No Surprises**: The instructions are clear, written down, and can be shared
+  with others. Everyone knows what’s being built.
+
+---
+
+## Example in Terraform
+
+Let’s say you want to create a virtual server in AWS. Here’s the code:
+
+```hcl
+provider "aws" {
+  region = "us-west-1"  # Choose where to build
+}
+
+resource "aws_instance" "my_server" {
+  ami           = "ami-0c55b159cbfafe1f0"  # Type of server
+  instance_type = "t2.micro"  # Size of the server
+}
+```
+
+## Why Learn Terraform?
+
+- **Automation**: Save time by automating repetitive tasks.
+- **Consistency**: Ensure identical setups for development, staging, and
+  production environments.
+- **Flexibility**: Manage multiple cloud platforms with a single tool.
+
+---
+
+## Getting Started with Terraform
+
+### 1. **Install Terraform**
+
+- Visit the
+  [official Terraform download page](https://www.terraform.io/downloads).
+- Follow installation instructions for your operating system (Windows, macOS,
+  Linux).
+
+### 2. **Understand the Basics**
+
+Terraform uses simple configuration files written in **HCL (HashiCorp
+Configuration Language)**. The two key concepts are:
+
+- **Providers**: Connect Terraform to a cloud service (e.g., AWS, Azure).
+- **Resources**: Define what you want to create (e.g., servers, databases).
+
+---
+
+## First Terraform Project: Creating a Server on AWS
+
+### Step 1: Create a Directory
+
+Create a new directory for your Terraform project:
+
+```bash
+mkdir terraform-beginner
+cd terraform-beginner
+```
+
+## Write Your First Configuration
+
+Create a file called **main.tf** and add the following code:
+
+```hcl
+provider "aws" {
+  region = "us-west-1"
+}
+
+resource "aws_instance" "my_server" {
+  ami           = "ami-0c55b159cbfafe1f0"  # Replace with a valid AMI ID for your region
+  instance_type = "t2.micro"
+}
+```
+
+## Initialize Terraform
+
+Run this command to initialize your project:
+
+```bash
+terraform init
+```
+
+## Plan the Infrastructure
+
+Preview what Terraform will create:
+
+```bash
+terraform plan
+```
+
+## Apply the Configuration
+
+Create your server by running:
+
+```bash
+terraform apply
+```
+
+## Clean Up
+
+When you're done, destroy the resources to avoid extra costs:
+
+```bash
+terraform destroy
+```
+
+## Key Terraform Concepts to Learn
+
+1. **State Files**: Terraform keeps track of your resources in a
+   terraform.tfstate file.
+2. **Variables**: Use variables to make your code reusable.
+
+```hcl
+variable "instance_type" {
+  default = "t2.micro"
+}
+
+resource "aws_instance" "my_server" {
+  instance_type = var.instance_type
+}
+```
+
+3. **Modules**: Organize your code into reusable components.
+4. **Outputs**: Display important information after running Terraform
+
+```hcl
+output "instance_ip" {
+  value = aws_instance.my_server.public_ip
+}
+```
+
+## Useful Resources
+
+- [**Terraform Documentation**](https://developer.hashicorp.com/terraform/docs)
+- [**Terraform Terraform on GitHub**](https://github.com/hashicorp/terraform)

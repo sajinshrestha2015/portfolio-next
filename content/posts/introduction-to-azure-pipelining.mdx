@@ -1,0 +1,109 @@
+---
+title: Introduction to Azure Pipelining
+summary:
+  Azure Pipelines is a powerful tool for automating build, test, and deployment
+  processes. This guide provides a structured approach to learning Azure
+  Pipelines effectively.
+image: /images/posts/introduction-to-azure-pipeline.webp
+author: 'Sajin Shrestha'
+publishedAt: '2023-04-03'
+---
+
+# Learning Azure Pipelines
+
+Azure Pipelines is a powerful tool for automating build and integration
+processes. This guide provides a structured approach to learning Azure Pipelines
+effectively.
+
+---
+
+## **Step 1: Understand the Basics**
+
+Before diving into Azure Pipelines, familiarize yourself with its core concepts:
+
+- **Pipelines**: Automate workflows for building, testing, and deploying code.
+- **Stages**: Logical divisions within a pipeline (e.g., Build, Test, Deploy).
+- **Jobs**: Units of work within stages, which run independently.
+- **Steps**: Tasks or scripts executed within a job.
+- **Triggers**: Conditions for starting a pipeline (e.g., code push to a
+  branch).
+
+---
+
+## **Step 2: Set Up Your Azure DevOps Account**
+
+1. Go to [Azure DevOps](https://dev.azure.com/).
+2. Sign up or log in with your Microsoft account.
+3. Create a new project to organize your repositories, pipelines, and artifacts.
+
+---
+
+## **Step 3: Create Your First Pipeline**
+
+### Using the Azure DevOps UI
+
+1. Navigate to the **Pipelines** tab in your Azure DevOps project.
+2. Click **New Pipeline** and follow these steps:
+   - Connect to your repository (e.g., GitHub, Azure Repos).
+   - Select a pipeline configuration (YAML or classic editor).
+3. Save and run the pipeline to see it in action.
+
+### Using a YAML File
+
+Start with a basic `azure-pipelines.yml` file in your repository:
+
+```yaml
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: echo "Hello, Azure Pipelines!"
+    displayName: 'Print a welcome message'
+```
+
+---
+
+## **Step 4: Learn by Experimenting**
+
+### Add Build Steps
+
+- Install dependencies: `npm install`, `pip install`, or similar for your tech
+  stack.
+- Compile code: Use build tools like `msbuild`, `webpack`, or `make`.
+
+---
+
+## **Step 5: Explore Advanced Features**
+
+- **Multi-Stage Pipelines**: Define and orchestrate multiple stages in a single
+  YAML file.
+- **Templates**: Reuse pipeline configurations across multiple repositories.
+- **Variables**: Use predefined and custom variables to simplify workflows.
+- **Artifacts**: Manage build outputs and dependencies.
+- **Triggers**: Configure continuous integration (CI) or continuous delivery
+  (CD).
+
+---
+
+## **Step 6: Monitor and Troubleshoot**
+
+- Use the **Logs** in the Azure Pipelines UI to debug issues.
+- Enable **Pipeline Insights** for detailed analytics on pipeline performance.
+- Set up notifications for pipeline failures or successes.
+
+---
+
+## **Step 7: Reference Documentation**
+
+- [Azure Pipelines Documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops)
+- [Azure Pipelines YAML Schema](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=example)
+
+---
+
+Start small by automating simple tasks and gradually build more complex
+pipelines as you become comfortable. **Happy learning!**
