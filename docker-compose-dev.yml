@@ -7,3 +7,4 @@ services:
       - '3000:3000'
     volumes:
       - .:/src
+# Run file  docker compose -f docker-compose-dev.yml up
