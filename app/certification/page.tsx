@@ -5,7 +5,6 @@ import Certifications from '@/components/certifications'
 
 export default async function CertificationPage() {
   const certifications = await getCertification()
-  console.log(certifications)
   return (
     <section className='pb-24 pt-40'>
       <div className='container max-w-3xl'>

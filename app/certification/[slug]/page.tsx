@@ -28,7 +28,7 @@ export default async function Certification({
   }
 
   const { metadata, content } = post
-  const { title, image, author, publishedAt } = metadata
+  const { title, image, author, publishedAt, link } = metadata
 
   return (
     <section className='pb-24 pt-32'>
@@ -54,12 +54,7 @@ export default async function Certification({
         )}
 
         <header>
-          <Link
-            href={
-              'https://www.udemy.com/certificate/UC-f16a8e9f-eac0-4662-b69b-08b76f60bfde/'
-            }
-            className='title'
-          >
+          <Link href={link ?? ''} className='title'>
             {title}
           </Link>
           <p className='mt-3 text-xs text-muted-foreground'>

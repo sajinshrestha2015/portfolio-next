@@ -16,6 +16,7 @@ export type CertificatonMetaData = {
   author?: string
   publishedAt?: string
   slug: string
+  link?: string
 }
 
 export async function getCertification(
